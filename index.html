@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Calculadora Web</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding-top: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 1em;
+        }
+
+        #calculator-container {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Calculadora Web Personal</h1>
+    </header>
+
+    <main>
+        <section id="calculator-container">
+            <h2>Calculadora Simple</h2>
+            <div class="calculator">
+                <input type="text" id="display" disabled>
+                <div class="buttons">
+                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="deleteLast()">DEL</button>
+                    <button onclick="appendOperator('/')">/</button>
+                    <button onclick="appendOperator('*')">*</button>
+                    <button onclick="appendNumber('7')">7</button>
+                    <button onclick="appendNumber('8')">8</button>
+                    <button onclick="appendNumber('9')">9</button>
+                    <button onclick="appendOperator('-')">-</button>
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendOperator('+')">+</button>
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="calculate()">=</button>
+                    <button onclick="appendNumber('0')" class="zero">0</button>
+                    <button onclick="appendDecimal()">.</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="other-content">
+            <h3>Un poco de texto en mi página</h3>
+            <p>Esta es una página web básica con una calculadora integrada. Puedes usarla para realizar cálculos sencillos.</p>
+            <p>En el futuro, podríamos añadir más funcionalidades o estilos a esta página.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Mi Calculadora Web</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
