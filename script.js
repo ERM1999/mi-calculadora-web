@@ -2,10 +2,22 @@ let display = document.getElementById('display');
 let currentInput = '';
 let operator = null;
 let firstOperand = null;
+let history = [];
+const historyContainer = document.getElementById('history-container');
+const historyList = document.getElementById('history-list');
+const toggleHistoryBtn = document.getElementById('toggle-history-btn');
+
+function updateDisplay() {
+    display.value = currentInput || '0';
+}
 
 function appendNumber(number) {
-    currentInput += number;
-    display.value = currentInput;
+    if (currentInput === '0') {
+        currentInput = number;
+    } else {
+        currentInput += number;
+    }
+    updateDisplay();
 }
 
 function appendOperator(op) {
@@ -21,25 +33,26 @@ function appendOperator(op) {
 function appendDecimal() {
     if (currentInput.includes('.')) return;
     currentInput += '.';
-    display.value = currentInput;
+    updateDisplay();
 }
 
 function clearDisplay() {
     currentInput = '';
     operator = null;
     firstOperand = null;
-    display.value = '';
+    updateDisplay();
 }
 
 function deleteLast() {
     currentInput = currentInput.slice(0, -1);
-    display.value = currentInput;
+    updateDisplay();
 }
 
 function calculate() {
     if (operator === null || firstOperand === null || currentInput === '') return;
     const secondOperand = parseFloat(currentInput);
     let result;
+    let fullOperation = `${firstOperand} ${operator} ${secondOperand}`;
     switch (operator) {
         case '+':
             result = firstOperand + secondOperand;
@@ -60,8 +73,25 @@ function calculate() {
         default:
             return;
     }
-    display.value = result;
     currentInput = String(result);
     operator = null;
     firstOperand = null;
+    updateDisplay();
+    history.push(fullOperation + ' = ' + result);
+    
 }
+
+function updateHistoryDisplay() {
+    historyList.innerHTML = '';
+    history.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        historyList.appendChild(listItem);
+    });
+}
+
+toggleHistoryBtn.addEventListener('click', function() {
+    historyContainer.style.display = historyContainer.style.display === 'none' ? 'block' : 'none';
+    toggleHistoryBtn.textContent = historyContainer.style.display === 'none' ? 'Mostrar Historial' : 'Ocultar Historial';
+    updateHistoryDisplay(); 
+});
