@@ -1,41 +1,49 @@
 .calculator {
-    background-color: #333;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco semitransparente */
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    padding: 25px;
+    backdrop-filter: blur(10px); /* Efecto de desenfoque del fondo */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
 }
 
 #display {
-    width: calc(100% - 20px);
-    margin-bottom: 10px;
-    padding: 15px;
-    font-size: 24px;
+    width: calc(100% - 30px);
+    margin-bottom: 15px;
+    padding: 18px;
+    font-size: 28px;
     text-align: right;
     border: none;
-    border-radius: 4px;
-    background-color: #444;
-    color: #fff;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo oscuro semitransparente */
+    color: #e0e0e0;
+    backdrop-filter: blur(5px); /* Desenfoque para la pantalla también */
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-gap: 12px;
 }
 
 button {
-    padding: 15px;
-    font-size: 20px;
+    padding: 18px;
+    font-size: 22px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    background-color: #555;
+    background-color: rgba(51, 51, 51, 0.7); /* Botones ligeramente transparentes */
     color: #fff;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Transiciones más suaves */
 }
 
 button:hover {
     background-color: #777;
+    transform: translateY(-2px); /* Ligero efecto de elevación al hacer hover */
+}
+
+button:active {
+    transform: translateY(0); /* Elimina la elevación al presionar */
 }
 
 .zero {
@@ -43,7 +51,7 @@ button:hover {
 }
 
 button:last-child {
-    background-color: #007bff;
+    background-color: #007bff; /* Color principal */
 }
 
 button:last-child:hover {
