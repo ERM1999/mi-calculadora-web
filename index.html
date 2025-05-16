@@ -5,52 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Calculadora Web</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding-top: 20px;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-            width: 100%;
-        }
-
-        main {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 20px;
-            width: 80%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            margin-bottom: 1em;
-        }
-
-        #calculator-container {
-            margin-bottom: 20px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #777;
-        }
-    </style>
+   
 </head>
 <body>
     <header>
@@ -61,20 +16,20 @@
         <section id="calculator-container">
             <h2>Calculadora Simple</h2>
             <div class="calculator">
-                <input type="text" id="display" disabled>
+                <input type="text" id="display" value="0" disabled>
                 <div class="buttons">
                     <button onclick="clearDisplay()">C</button>
                     <button onclick="deleteLast()">DEL</button>
-                    <button onclick="appendOperator('/')">/</button>
-                    <button onclick="appendOperator('*')">*</button>
+                    <button onclick="appendOperator('/')" class="operator">/</button>
+                    <button onclick="appendOperator('*')" class="operator">*</button>
                     <button onclick="appendNumber('7')">7</button>
                     <button onclick="appendNumber('8')">8</button>
                     <button onclick="appendNumber('9')">9</button>
-                    <button onclick="appendOperator('-')">-</button>
+                    <button onclick="appendOperator('-')" class="operator">-</button>
                     <button onclick="appendNumber('4')">4</button>
                     <button onclick="appendNumber('5')">5</button>
                     <button onclick="appendNumber('6')">6</button>
-                    <button onclick="appendOperator('+')">+</button>
+                    <button onclick="appendOperator('+')" class="operator">+</button>
                     <button onclick="appendNumber('1')">1</button>
                     <button onclick="appendNumber('2')">2</button>
                     <button onclick="appendNumber('3')">3</button>
@@ -83,12 +38,18 @@
                     <button onclick="appendDecimal()">.</button>
                 </div>
             </div>
+            <button id="toggle-history-btn">Mostrar Historial</button>
+            <div id="history-container">
+                <h3>Historial</h3>
+                <ul id="history-list"></ul>
+            </div>
         </section>
 
         <section id="other-content">
-            <h3>Un poco de texto en mi página</h3>
-            <p>Esta es una página web básica con una calculadora integrada. Puedes usarla para realizar cálculos sencillos.</p>
-            <p>En el futuro, podríamos añadir más funcionalidades o estilos a esta página.</p>
+            <h3>Información Técnica</h3>
+            <p>Esta calculadora web fue desarrollada utilizando HTML para la estructura y la organización de los elementos, CSS para el diseño visual y la presentación, y JavaScript para la implementación de toda la lógica interactiva y funcional.</p>
+            <p>El código JavaScript se encarga de capturar las interacciones del usuario con los botones, realizar los cálculos necesarios y actualizar dinámicamente el contenido de la pantalla y el historial de operaciones.</p>
+            <p>Doble click inicial en historial</p>
         </section>
     </main>
 
